@@ -1,0 +1,37 @@
+# Default server configuration
+server {
+	listen 80 default_server;
+	listen [::]:80 default_server;
+      
+      server_name localhost;    
+      
+       root /mnt/websites/ThronesSeries/IceFireSeries;
+       #index index.html index.htm index.nginx-debian.html;
+       index index.html;
+
+       error_page 404 /404_html.html;
+   
+       location = /404_html.html {
+       try_files $uri $uri/ =404;
+       root /mnt/websites/ThronesSeries/CustomErrorPage;
+       internal;
+       }
+       location = /404_image.jpg {
+       root /mnt/websites/ThronesSeries/CustomErrorPage/images;
+       }
+
+       location = /style.css {
+        root /mnt/websites/ThronesSeries/CustomErrorPage/css;
+        }
+        
+        error_page 500 502 503 504 /500_html.html;
+        location = /500_html.html {
+        try_files $uri $uri/ =500;
+        root /mnt/websites/ThronesSeries/CustomErrorPage;
+        internal;
+        }
+        
+        location = /500_image.jpg {
+              root /mnt/websites/ThronesSeries/CustomErrorPage/images;
+         }
+}

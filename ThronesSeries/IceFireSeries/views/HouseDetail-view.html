@@ -1,0 +1,37 @@
+<!-- individual house details-->
+<div class="jumbotron bg-light">
+<div class="container-fluid">
+	<div class="col-xs-12 text-center text-info" ng-repeat="house in houseDetail.aHouseDetail">
+					<h2>
+					<span style="margin:0px 5px;"><i class="fa fa-gamepad" aria-hidden="true"></i></span>{{ house.name }}
+					<span style="margin:0px 5px;"><i class="fa fa-gamepad" aria-hidden="true"></i></span>		
+					</h2>
+					<hr style="width: 50%; border-top: 1px solid #797A74; margin-top: 5px;"></hr>
+
+<div class="col-xs-12 col-md-5 text-center">
+	<p ng-if="house.region"><b>Region:</b>{{house.region}}</p>
+	<p ng-if="house.coatOfArms"><b>CoatOfArms:</b>{{house.coatOfArms}} </p>
+	<p ng-if="house.words"><b>Words:</b>{{house.words}}</p>
+	<p ng-if="house.titles[0]"><b>Titles:</b> {{house.titles[0]}}</p>
+	<p ng-if="house.seats[0]"><b>Seats:</b> {{house.seats[0]}}</p>
+	<p ng-if="house.currentLord"><u>CurrentLord:</u><h5><a ng-href ='#/charDet/{{ house.currentLord.split("/").pop() }}'> {{house.currentLord}}</a></h5></p>
+	<p ng-if="house.overlord"><u>OverLord:</u> <h5><a ng-href ='#/houseDet/{{ house.overlord.split("/").pop() }}'>{{house.overlord}}</a></h5></p>
+
+</div>
+<div class="col-xs-12 col-md-5 col-md-offset-1 text-center text-info" ng-if = 'house.swornMembers.length >= 1'>
+				
+					<h4>Sworn Members</h4>
+					<hr style="width: 50%; border-top: 1px solid #797A74; margin-top: 5px;"></hr>
+				
+					<div ng-repeat ="mem in house.swornMembers |limitTo:20">
+				 		<h5><a ng-href ='#/charDet/{{ mem.split("/").pop() }}'>{{ mem }}</a></h5>
+					</div> 
+</div>
+</div>
+ <ul class="pager">
+                   <li>
+                        <a href="#/"><i class="fa fa-arrow-circle-left fa-lg"></i> Back to Home</a>
+                    </li>
+                </ul>
+</div>
+</div>

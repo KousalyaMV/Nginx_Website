@@ -1,0 +1,6 @@
+<div>
+   <h4> Book {{$index+1}}</h4> 
+	<span>{{p.isbn}}</span> 
+<a ng-href='#/bookDet/{{ p.url.split("/").pop()}}'><h5>{{p.name | uppercase}}</h5></a>
+
+</div>

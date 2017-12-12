@@ -1,0 +1,5 @@
+<div class="text-responsive">
+ <h4> Character {{$index+1}}</h4>
+<a ng-href='#/charDet/{{ p.url.split("/").pop()}}'> <h4 ng-if="p.name">{{p.name | uppercase}} </h4></a>
+	<span ng-if="p.gender">Gender :{{p.gender | uppercase}} </span>
+</div>

@@ -1,0 +1,41 @@
+<!-- individual character details-->
+<div class="jumbotron bg-light">
+<div class="container-fluid">
+	<div class="col-xs-12 text-center text-info" ng-repeat="char in charDetail.aCharDetail">
+					<h2>
+					<span style="margin:0px 5px;"><i class="fa fa-gamepad" aria-hidden="true"></i></span>{{ char.name }}
+					<span style="margin:0px 5px;"><i class="fa fa-gamepad" aria-hidden="true"></i></span>		
+					</h2>
+					<hr style="width: 50%; border-top: 1px solid #797A74; margin-top: 5px;"></hr>
+
+	<!--<div  class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">-->
+<div class="col-xs-12 col-md-5  text-center">
+	<p ng-if="char.gender"><b>Gender:</b>{{char.gender}}</p>
+	<p ng-if="char.culture"><b>Culture:</b>{{char.culture}} </p>
+	<p ng-if="char.born"><b>Born On:</b>{{char.born}}</p>
+	<p ng-if="char.died"><b>Died On:</b>{{char.died}}</p>
+	<p ng-if="char.titles[0]"><b>Titles:</b><span  ng-repeat="tit in char.titles"> {{tit}}{{$last ? '' : ', '}}
+	</span></p>
+	<p ng-if="char.tvSeries[0]"><b>TV SERIES:</b><span ng-repeat="series in char.tvSeries"> {{series}}{{$last ? '' : ', '}}</span></p>
+	<p ng-if="char.aliases[0]"><b>Aliases:</b><span ng-repeat="alia in char.aliases"> {{alia}}{{$last ? '' : ', '}}</span></p>
+    <p ng-if="char.playedBy[0]"><b>Played By:</b>{{char.playedBy[0]}}</p>
+
+</div>
+<div class="col-xs-12 col-md-5 col-md-offset-1 text-center text-info" ng-if = 'char.books.length>=1'>
+				
+					<h4>Books Written</h4>
+					<hr style="width: 50%; border-top: 1px solid #797A74; margin-top: 5px;"></hr>
+				
+					<div ng-repeat ="book in char.books |limitTo:20">
+				 		<h5><a ng-href ='#/bookDet/{{ book.split("/").pop() }}'>{{ book }}</a></h5>
+					</div> 
+</div>
+<ul class="pager">
+                   <li>
+                        <a href="#/"><i class="fa fa-arrow-circle-left fa-lg"></i> Back to Home</a>
+                    </li>
+                </ul>
+</div>
+ 
+</div>
+</div>

@@ -1,0 +1,5 @@
+<div class="text-responsive">
+	<h4> House {{$index+1}}</h4> 
+	<a ng-href='#/houseDet/{{ p.url.split("/").pop()}}'><h5>{{p.name}} </h5></a>
+	<p ng-if="p.region"><b>Region:</b>{{p.region}}</p>
+</div>

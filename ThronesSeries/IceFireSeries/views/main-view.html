@@ -1,0 +1,25 @@
+<div class="container-fluid">
+    <label>Filter by :</label>
+  <select ng-model="ddlvalue" required="required">
+  	<option value="" selected="selected">--Select--</option>
+  	<option value="name" >Author/House/CharcterName</option>
+    </select>
+    <label ng-show="ddlvalue">Search Table Data:</label>
+     <input type="text" ng-model="search[ddlvalue]" ng-show="ddlvalue"
+        placeholder="Enter some text to search"/>       
+
+    <label>Sort by Name:</label>
+      <button class="btn btn-info" type="button" ng-click="AllSeries.sortData =! AllSeries.sortData">SORT<span  ng-show="!AllSeries.sortData" style="margin-left: 5px;"><i class="fa fa-arrow-down"></i></span>
+      <span ng-show="AllSeries.sortData" style="margin-left: 5px;"><i class="fa fa-arrow-up"></i></span></button>
+        <hr></hr>
+<div  class="flex-container text-responsive" ng-repeat="data in AllSeries.AllData| filter:search">
+	<div class="item" ng-repeat="p in data | filter:search| orderBy: AllSeries.sortData? '-name':'name'">
+     <all-books  ng-if="p.isbn"></all-books>
+     <all-houses  ng-if="p.region || p.coatOfArms "></all-houses>
+     <all-character ng-if="p.gender">
+     </all-character>
+  </div>
+</div>
+</div>
+
+  
